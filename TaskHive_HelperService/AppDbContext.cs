@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using TaskHive_HelperService.Models.Data;
 
 namespace TaskHive_HelperService
 {

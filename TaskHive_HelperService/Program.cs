@@ -1,5 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using TaskHive_HelperService;
+using TaskHive_HelperService.Repositories;
+using TaskHive_HelperService.Repositories.Interfaces;
+using TaskHive_HelperService.Services;
+using TaskHive_HelperService.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +25,12 @@ var configuration = builder.Configuration;
 // ----- Local Development -----
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(configuration.GetConnectionString("LocalSQLConnection")));
+
+builder.Services.AddScoped<IDepartmentService, DepartmentService>();
+builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+
+builder.Services.AddScoped<IRoleService, RoleService>();
+builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 
 var app = builder.Build();
 

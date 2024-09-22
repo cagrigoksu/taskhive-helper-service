@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace TaskHive_HelperService
+namespace TaskHive_HelperService.Models.Data
 {
     public class RoleDataModel
     {
