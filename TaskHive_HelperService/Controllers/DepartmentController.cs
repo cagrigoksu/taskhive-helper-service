@@ -28,5 +28,17 @@ namespace TaskHive_HelperService.Controllers
             return BadRequest();
         }
 
+        [HttpGet("get-departments")]
+        public async Task<IActionResult> GetDepartmentsAsync()
+        {
+            var result = await _departmentService.GetDepartmentsAsync();
+
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
+
     }
 }

@@ -9,7 +9,7 @@ namespace TaskHive_HelperService
         {
         }
 
-        public DbSet<DepartmentDataModel> Departments { get;}
-        public DbSet<RoleDataModel> Roles { get;}
+        public DbSet<DepartmentDataModel> Departments { get; set;}
+        public DbSet<RoleDataModel> Roles { get; set;}
     }
 }

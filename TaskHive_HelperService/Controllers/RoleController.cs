@@ -28,5 +28,17 @@ namespace TaskHive_HelperService.Controllers
             return BadRequest();
         }
 
+        [HttpGet("get-roles")]
+        public async Task<IActionResult> GetRolesAsync()
+        {
+            var result = await _roleService.GetRolesAsync();
+
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
+
     }
 }

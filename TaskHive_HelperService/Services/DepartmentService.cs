@@ -17,5 +17,10 @@ namespace TaskHive_HelperService.Services
         {
             return await _departmentRepository.CreateDepartmentAsync(departmentData); 
         }
+
+        public async Task<List<DepartmentDataModel>> GetDepartmentsAsync()
+        {
+            return await _departmentRepository.GetDepartmentsAsync();
+        }
     }
 }

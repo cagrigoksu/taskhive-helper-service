@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using TaskHive_HelperService.Models.Data;
 using TaskHive_HelperService.Repositories.Interfaces;
 
@@ -23,6 +24,20 @@ namespace TaskHive_HelperService.Repositories
                 await _db.SaveChangesAsync();
 
                 return departmentData;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return null;
+            }
+        }
+
+        public async Task<List<DepartmentDataModel>> GetDepartmentsAsync()
+        {
+            try
+            {
+                var roles = await _db.Departments.ToListAsync();  
+                return roles;
             }
             catch (Exception e)
             {

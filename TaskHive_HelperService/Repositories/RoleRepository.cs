@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using TaskHive_HelperService.Models.Data;
 using TaskHive_HelperService.Repositories.Interfaces;
 
@@ -24,6 +25,20 @@ namespace TaskHive_HelperService.Repositories
 
                 return roleData;
 
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return null;
+            }
+        }
+
+        public async Task<List<RoleDataModel>> GetRolesAsync()
+        {
+            try
+            {
+                var roles = await _db.Roles.ToListAsync();   
+                return roles;
             }
             catch (Exception e)
             {

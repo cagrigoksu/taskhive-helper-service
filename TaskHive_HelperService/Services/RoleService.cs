@@ -17,5 +17,10 @@ namespace TaskHive_HelperService.Services
         {
             return await _roleRepository.CreateRoleAsync(roleData); 
         }
+
+        public async Task<List<RoleDataModel>> GetRolesAsync()
+        {
+            return await _roleRepository.GetRolesAsync();
+        }
     }
 }
