@@ -54,3 +54,13 @@ jobs:
           slot-name: 'Production'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_919F7EE3722F47E09A2273910331FBA7 }}
+          
+      # Run EF database update after deployment
+      - name: Run database migrations
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az webapp ssh --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} --name taskhive-backend --command "dotnet ef database update"
+        env:
+          AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          AZURE_CLI_ALLOW_NO_SUBSCRIPTION: true
