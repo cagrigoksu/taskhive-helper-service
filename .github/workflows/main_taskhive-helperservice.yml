@@ -60,7 +60,7 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            az webapp ssh --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} --name taskhive-backend --command "dotnet ef database update"
+            az webapp ssh --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} --name taskhive-helperservice --command "dotnet ef database update"
         env:
           AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           AZURE_CLI_ALLOW_NO_SUBSCRIPTION: true
